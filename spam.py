@@ -24,7 +24,7 @@ for i in range(len(df)):
 from sklearn.feature_extraction.text import TfidfVectorizer
 vector = TfidfVectorizer()
 X = vector.fit_transform(corpus)
-y = df['label_num'
+y = df['label_num']
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 from sklearn.naive_bayes import BernoulliNB
