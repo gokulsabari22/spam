@@ -7,6 +7,7 @@ c = df.isnull().sum()
 print(c)
 import nltk
 from nltk.corpus import stopwords
+
 from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import re
@@ -25,6 +26,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 vector = TfidfVectorizer()
 X = vector.fit_transform(corpus)
 y = df['label_num']
+X_df = pd.DataFrame(X.todense()) # Total number of columns 37890. Rows 5171
+print(X_df)
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 from sklearn.naive_bayes import BernoulliNB
