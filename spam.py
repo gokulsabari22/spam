@@ -14,7 +14,7 @@ ps = PorterStemmer()
 wordnet = WordNetLemmatizer()
 corpus = []
 for i in range(len(df)):
-    sentence = re.sub('[A-Za-z]', ' ', df['text'][i])
+    sentence = re.sub('[^A-Za-z]', ' ', df['text'][i])
     sentence = sentence.lower()
     sentence = sentence.split()
     sentence = [ps.stem(words) for words in sentence if words not in stopwords.words('english')]
